@@ -16,7 +16,7 @@ class ChatScreen extends StatelessWidget {
     Key? key,
     required this.lastSeen,
     required this.profileName,
-    this.msgLength = 10,
+    this.msgLength = 20,
     this.imageUrl =
         "https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
   }) : super(key: key);
@@ -44,15 +44,19 @@ class ChatScreen extends StatelessWidget {
                     children: [
                       AppPaddings.heigthSpace20,
                       ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: msgLength,
                         itemBuilder: (context, index) {
                           return ChatBox(
                             isSender: index.isOdd ? false : true,
-                            msg: "msg",
+                            msg: "msghkjhkjhkjhj",
                             time: "12.09pm",
                           );
                         },
+                      ),
+                      const SizedBox(
+                        height: 70,
                       ),
                     ],
                   ),

@@ -41,6 +41,7 @@ class ChatBox extends StatelessWidget {
           ],
         ),
         child: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.end,
           spacing: 5,
           direction: Axis.vertical,
           children: [
