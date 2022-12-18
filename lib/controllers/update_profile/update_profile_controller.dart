@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../constants/app_colors.dart';
 
-class LoginController extends GetxController {
+class UpdateProfileController extends GetxController {
   TextEditingController email = TextEditingController();
+
+  TextEditingController name = TextEditingController();
+
   TextEditingController password = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
+  String? imagePath;
+
+  picknewImage() async {
+    XFile? res = await ImagePicker.platform.getImage(
+      source: ImageSource.gallery,
+    );
+    if (res != null) {
+      imagePath = res.path;
+    } else {}
+    update();
+  }
 
   bool isEmailValid(String email) {
     String exp =
@@ -24,7 +40,14 @@ class LoginController extends GetxController {
   }
 
   isValidUser() async {
-    if (email.text.trim().isEmpty) {
+    if (name.text.trim().isEmpty) {
+      Get.snackbar(
+        "Error",
+        "Name should not be empty",
+        colorText: Colors.white,
+        backgroundColor: AppColors.primaryColor,
+      );
+    } else if (email.text.trim().isEmpty) {
       Get.snackbar(
         "Error",
         "Email should not be empty",
@@ -49,6 +72,20 @@ class LoginController extends GetxController {
       Get.snackbar(
         "Error",
         "Password should contain minimum 8 characters with alphabets,numeric and special characters",
+        colorText: Colors.white,
+        backgroundColor: AppColors.primaryColor,
+      );
+    } else if (password.text.trim().length < 6) {
+      Get.snackbar(
+        "Error",
+        "Password length should be 6",
+        colorText: Colors.white,
+        backgroundColor: AppColors.primaryColor,
+      );
+    } else if (confirmPassword.text.trim() != password.text.trim()) {
+      Get.snackbar(
+        "Error",
+        "Password Does not matched",
         colorText: Colors.white,
         backgroundColor: AppColors.primaryColor,
       );
