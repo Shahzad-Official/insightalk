@@ -1,8 +1,7 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const primaryColor = Color.fromRGBO(233, 64, 87, 1);
+  static const primaryColor = Color(0xFFE94057);
   Map<int, Color> color = const {
     50: Color.fromRGBO(233, 64, 87, .1),
     100: Color.fromRGBO(233, 64, 87, .2),
