@@ -19,11 +19,14 @@ class ChatBox extends StatelessWidget {
       alignment: isSender ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.9,
+          maxWidth: MediaQuery.of(context).size.width * 0.7,
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: 15.0,
           vertical: 8,
+        ),
+        margin: const EdgeInsets.only(
+          bottom: 20,
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
@@ -40,32 +43,40 @@ class ChatBox extends StatelessWidget {
             ),
           ],
         ),
-        child: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.end,
-          spacing: 5,
-          direction: Axis.vertical,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 18.0),
-              child: AppText(
-                text: msg,
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                textColor: isSender ? Colors.white : AppColors.primaryColor,
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: AppText(
-                lineHeight: 1.5,
-                text: time,
-                fontSize: 10,
-                fontWeight: FontWeight.w500,
-                textColor: isSender ? Colors.white : AppColors.primaryColor,
-              ),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(right: 18.0),
+          child: AppText(
+            text: msg,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            textColor: isSender ? Colors.white : AppColors.primaryColor,
+          ),
         ),
+        // child: Column(
+        //   mainAxisAlignment: MainAxisAlignment.start,
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: [
+        //     Padding(
+        //       padding: const EdgeInsets.only(right: 18.0),
+        //       child: AppText(
+        //         text: msg,
+        //         fontSize: 16,
+        //         fontWeight: FontWeight.w500,
+        //         textColor: isSender ? Colors.white : AppColors.primaryColor,
+        //       ),
+        //     ),
+        //     Align(
+        //       alignment: Alignment.bottomRight,
+        //       child: AppText(
+        //         lineHeight: 1.5,
+        //         text: time,
+        //         fontSize: 10,
+        //         fontWeight: FontWeight.w500,
+        //         textColor: isSender ? Colors.white : AppColors.primaryColor,
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }

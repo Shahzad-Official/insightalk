@@ -13,6 +13,7 @@ import '../../widgets/app_buttons.dart';
 import '../../widgets/app_input_field.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+// ignore: must_be_immutable
 class UpdateProfile extends StatelessWidget {
   String imageUrl;
   UpdateProfile({
