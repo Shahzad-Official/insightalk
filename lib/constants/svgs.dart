@@ -142,4 +142,44 @@ class SvgIcons {
         </clipPath>
     </defs>
 </svg>""";
+  static const chatIcon =
+      """<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 12C22 17.5229 17.5229 22 12 22C9.01325 22 2 22 2 22C2 22 2 14.5361 2 12C2 6.47715 6.47715 2 12 2C17.5229 2 22 6.47715 22 12Z" fill="#E94057" stroke="#E94057" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 9H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 13H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 17H12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+""";
+  static const likeIcon =
+      """<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.5 4C4.46244 4 2 6.46245 2 9.5C2 15 8.5 20 12 21.1631C15.5 20 22 15 22 9.5C22 6.46245 19.5375 4 16.5 4C14.6398 4 12.9953 4.92345 12 6.3369C11.0047 4.92345 9.36015 4 7.5 4Z" fill="#E94057" stroke="#E94057" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="20" cy="6" r="5" fill="#E94057" stroke="#F3F3F3" stroke-width="2"/>
+</svg>
+""";
+  static const inactiveLikeIcon =
+      """<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.5 4C4.46244 4 2 6.46245 2 9.5C2 15 8.5 20 12 21.1631C15.5 20 22 15 22 9.5C22 6.46245 19.5375 4 16.5 4C14.6398 4 12.9953 4.92345 12 6.3369C11.0047 4.92345 9.36015 4 7.5 4Z" fill="#ADAFBB" stroke="#ADAFBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="20" cy="6" r="5" fill="#E94057" stroke="#F3F3F3" stroke-width="2"/>
+</svg>
+""";
+  static const friends =
+      """<svg width="33" height="20" viewBox="0 0 33 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.5 0C17.7764 0 19.0004 0.50703 19.903 1.40955C20.8055 2.31207 21.3125 3.53615 21.3125 4.8125C21.3125 6.08885 20.8055 7.31293 19.903 8.21545C19.0004 9.11797 17.7764 9.625 16.5 9.625C15.2236 9.625 13.9996 9.11797 13.097 8.21545C12.1945 7.31293 11.6875 6.08885 11.6875 4.8125C11.6875 3.53615 12.1945 2.31207 13.097 1.40955C13.9996 0.50703 15.2236 0 16.5 0ZM6.875 3.4375C7.645 3.4375 8.36 3.64375 8.97875 4.015C8.7725 5.98125 9.35 7.93375 10.5325 9.46C9.845 10.78 8.47 11.6875 6.875 11.6875C5.78098 11.6875 4.73177 11.2529 3.95818 10.4793C3.1846 9.70573 2.75 8.65652 2.75 7.5625C2.75 6.46848 3.1846 5.41927 3.95818 4.64568C4.73177 3.8721 5.78098 3.4375 6.875 3.4375ZM26.125 3.4375C27.219 3.4375 28.2682 3.8721 29.0418 4.64568C29.8154 5.41927 30.25 6.46848 30.25 7.5625C30.25 8.65652 29.8154 9.70573 29.0418 10.4793C28.2682 11.2529 27.219 11.6875 26.125 11.6875C24.53 11.6875 23.155 10.78 22.4675 9.46C23.6663 7.91233 24.2228 5.96227 24.0212 4.015C24.64 3.64375 25.355 3.4375 26.125 3.4375ZM7.5625 17.5312C7.5625 14.685 11.5638 12.375 16.5 12.375C21.4363 12.375 25.4375 14.685 25.4375 17.5312V19.9375H7.5625V17.5312ZM0 19.9375V17.875C0 15.9637 2.59875 14.355 6.11875 13.8875C5.3075 14.8225 4.8125 16.115 4.8125 17.5312V19.9375H0ZM33 19.9375H28.1875V17.5312C28.1875 16.115 27.6925 14.8225 26.8812 13.8875C30.4012 14.355 33 15.9637 33 17.875V19.9375Z" fill="#ADAFBB"/>
+</svg>
+""";
+  static const profile =
+      """<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 10C13.933 10 15.5 8.433 15.5 6.5C15.5 4.56701 13.933 3 12 3C10.067 3 8.5 4.56701 8.5 6.5C8.5 8.433 10.067 10 12 10Z" fill="#ADAFBB" stroke="#ADAFBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3 20.4V21H21V20.4C21 18.1598 21 17.0397 20.5641 16.184C20.1806 15.4314 19.5686 14.8195 18.816 14.436C17.9603 14 16.8402 14 14.6 14H9.4C7.1598 14 6.0397 14 5.18405 14.436C4.43139 14.8195 3.81947 15.4314 3.43598 16.184C3 17.0397 3 18.1598 3 20.4Z" fill="#ADAFBB" stroke="#ADAFBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+""";
+  static const inactiveChatIcon =
+      """<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 12C22 17.5229 17.5229 22 12 22C9.01325 22 2 22 2 22C2 22 2 14.5361 2 12C2 6.47715 6.47715 2 12 2C17.5229 2 22 6.47715 22 12Z" fill="#ADAFBB" stroke="#ADAFBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 9H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 13H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 17H12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+""";
 }

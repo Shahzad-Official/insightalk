@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:insightalk/views/home_pages/home_screen.dart';
 
 import '../../constants/app_colors.dart';
 
@@ -52,6 +53,10 @@ class LoginController extends GetxController {
         colorText: Colors.white,
         backgroundColor: AppColors.primaryColor,
       );
-    } else {}
+    } else {
+      Get.offAll(
+        () => HomeScreen(),
+      );
+    }
   }
 }

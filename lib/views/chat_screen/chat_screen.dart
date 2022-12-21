@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:insightalk/constants/app_colors.dart';
 import 'package:insightalk/constants/app_paddings.dart';
+import 'package:insightalk/controllers/chat_controllers/chat_messages_controller.dart';
 import 'package:insightalk/widgets/app_text.dart';
 import 'package:insightalk/widgets/chat_widgets/chat_box.dart';
 import 'package:insightalk/widgets/chat_widgets/send_chat.dart';
@@ -43,15 +44,20 @@ class ChatScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       AppPaddings.heigthSpace20,
-                      ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: msgLength,
-                        itemBuilder: (context, index) {
-                          return ChatBox(
-                            isSender: index.isOdd ? false : true,
-                            msg: "msghkjhkjhkjhj",
-                            time: "12.09pm",
+                      GetBuilder<ChatMessagesController>(
+                        init: ChatMessagesController(),
+                        builder: (_) {
+                          return ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: _.allMessages.length,
+                            itemBuilder: (context, index) {
+                              return ChatBox(
+                                isSender: index.isOdd ? false : true,
+                                msg: _.allMessages[index],
+                                time: "12.09pm",
+                              );
+                            },
                           );
                         },
                       ),
@@ -66,7 +72,21 @@ class ChatScreen extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: const EdgeInsets.all(10),
-                  child: SendChat(),
+                  child: GetBuilder<ChatMessagesController>(
+                    init: ChatMessagesController(),
+                    builder: (_) {
+                      return SendChat(
+                        isRecording: _.isRecording,
+                        msgController: _.message,
+                        sendMessage: () {
+                          _.addMessage(context);
+                        },
+                        voiceRecord: () {
+                          _.isRecordingaudio();
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
