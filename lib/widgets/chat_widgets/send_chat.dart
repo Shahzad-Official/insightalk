@@ -4,24 +4,25 @@ import 'package:insightalk/constants/app_colors.dart';
 import 'package:insightalk/constants/svgs.dart';
 
 // ignore: must_be_immutable
-class SendChat extends StatefulWidget {
+class SendChat extends StatelessWidget {
   TextEditingController? msgController;
   Function sendMessage, voiceRecord;
   bool isRecording;
+  VoidCallback? selectEmoji, onCameraOpen;
+  void Function(bool value)? onFocusChage;
+  bool isFocused;
   SendChat({
     Key? key,
     this.msgController,
     required this.sendMessage,
     required this.voiceRecord,
     this.isRecording = false,
+    this.selectEmoji,
+    this.isFocused = false,
+    this.onFocusChage,
+    this.onCameraOpen,
   }) : super(key: key);
 
-  @override
-  State<SendChat> createState() => _SendChatState();
-}
-
-class _SendChatState extends State<SendChat> {
-  bool isFocused = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -41,30 +42,32 @@ class _SendChatState extends State<SendChat> {
               borderRadius: BorderRadius.circular(30),
             ),
             child: Focus(
-              onFocusChange: (value) {
-                setState(() {
-                  isFocused = value;
-                });
-              },
+              onFocusChange: onFocusChage,
               child: TextFormField(
-                controller: widget.msgController,
+                controller: msgController,
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.string(
-                      SvgIcons.smile,
+                  prefixIcon: InkWell(
+                    onTap: selectEmoji,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.string(
+                        SvgIcons.smile,
+                      ),
                     ),
                   ),
-                  suffixIcon: Container(
-                    padding: const EdgeInsets.only(
-                      right: 10,
-                    ),
-                    margin: const EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: SvgPicture.string(
-                      SvgIcons.camera,
+                  suffixIcon: InkWell(
+                    onTap: onCameraOpen,
+                    child: Container(
+                      padding: const EdgeInsets.only(
+                        right: 10,
+                      ),
+                      margin: const EdgeInsets.only(
+                        right: 5,
+                      ),
+                      child: SvgPicture.string(
+                        SvgIcons.camera,
+                      ),
                     ),
                   ),
                 ),
@@ -76,15 +79,15 @@ class _SendChatState extends State<SendChat> {
           child: InkWell(
             onTap: () {
               if (isFocused) {
-                widget.sendMessage();
+                sendMessage();
               } else {
-                widget.voiceRecord();
+                voiceRecord();
               }
             },
             child: CircleAvatar(
               backgroundColor: AppColors.primaryColor,
               radius: 25,
-              child: isFocused || widget.isRecording
+              child: isFocused || isRecording
                   ? const Icon(
                       Icons.send_outlined,
                       color: Colors.white,

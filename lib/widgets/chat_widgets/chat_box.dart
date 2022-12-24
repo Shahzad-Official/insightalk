@@ -1,20 +1,30 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insightalk/constants/app_colors.dart';
 import 'package:insightalk/widgets/app_text.dart';
+import 'package:intl/intl.dart';
 
 class ChatBox extends StatelessWidget {
   bool isSender;
   String msg, time;
+  File? imageFile;
+  bool isImage;
   ChatBox({
     Key? key,
     this.isSender = true,
     required this.msg,
     required this.time,
+    this.isImage = false,
+    this.imageFile,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    time = DateFormat.jm().format(
+      DateTime.now(),
+    );
     return Align(
       alignment: isSender ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
@@ -43,40 +53,31 @@ class ChatBox extends StatelessWidget {
             ),
           ],
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(right: 18.0),
-          child: AppText(
-            text: msg,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            textColor: isSender ? Colors.white : AppColors.primaryColor,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            isImage
+                ? Image.file(imageFile!)
+                : Padding(
+                    padding: const EdgeInsets.only(right: 18.0),
+                    child: AppText(
+                      text: msg,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      textColor:
+                          isSender ? Colors.white : AppColors.primaryColor,
+                    ),
+                  ),
+            AppText(
+              lineHeight: 1.5,
+              text: time,
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              textColor: isSender ? Colors.white : AppColors.primaryColor,
+            ),
+          ],
         ),
-        // child: Column(
-        //   mainAxisAlignment: MainAxisAlignment.start,
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: [
-        //     Padding(
-        //       padding: const EdgeInsets.only(right: 18.0),
-        //       child: AppText(
-        //         text: msg,
-        //         fontSize: 16,
-        //         fontWeight: FontWeight.w500,
-        //         textColor: isSender ? Colors.white : AppColors.primaryColor,
-        //       ),
-        //     ),
-        //     Align(
-        //       alignment: Alignment.bottomRight,
-        //       child: AppText(
-        //         lineHeight: 1.5,
-        //         text: time,
-        //         fontSize: 10,
-        //         fontWeight: FontWeight.w500,
-        //         textColor: isSender ? Colors.white : AppColors.primaryColor,
-        //       ),
-        //     ),
-        //   ],
-        // ),
       ),
     );
   }

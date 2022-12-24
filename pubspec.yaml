@@ -48,8 +48,12 @@ dependencies:
   cached_network_image: ^3.2.3
   #image_picker
   image_picker: ^0.8.6
+  #emoji_picker
+  emoji_picker_flutter: ^1.5.1
 
-  
+  #Number_picker
+  numberpicker: ^2.1.1
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:

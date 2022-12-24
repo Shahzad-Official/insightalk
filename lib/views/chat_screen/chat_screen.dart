@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:insightalk/constants/app_colors.dart';
@@ -53,6 +54,8 @@ class ChatScreen extends StatelessWidget {
                             itemCount: _.allMessages.length,
                             itemBuilder: (context, index) {
                               return ChatBox(
+                                isImage: false,
+                                imageFile: _.imageFile,
                                 isSender: index.isOdd ? false : true,
                                 msg: _.allMessages[index],
                                 time: "12.09pm",
@@ -75,15 +78,42 @@ class ChatScreen extends StatelessWidget {
                   child: GetBuilder<ChatMessagesController>(
                     init: ChatMessagesController(),
                     builder: (_) {
-                      return SendChat(
-                        isRecording: _.isRecording,
-                        msgController: _.message,
-                        sendMessage: () {
-                          _.addMessage(context);
-                        },
-                        voiceRecord: () {
-                          _.isRecordingaudio();
-                        },
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SendChat(
+                            onCameraOpen: () async {
+                              await _.openCamera();
+                            },
+                            isFocused: _.isFocused,
+                            onFocusChage: (value) {
+                              _.changeFocus(value);
+                            },
+                            selectEmoji: () {
+                              _.selectEmoji(context);
+                            },
+                            isRecording: _.isRecording,
+                            msgController: _.message,
+                            sendMessage: () {
+                              _.addMessage(context);
+                            },
+                            voiceRecord: () {
+                              _.isRecordingaudio();
+                              _.addImageToList();
+                            },
+                          ),
+                          _.isSelected
+                              ? SizedBox(
+                                  height: 300,
+                                  width: Get.width,
+                                  child: EmojiPicker(
+                                    textEditingController: _.message,
+                                    onEmojiSelected: (category, emoji) {},
+                                  ),
+                                )
+                              : Container(),
+                        ],
                       );
                     },
                   ),
