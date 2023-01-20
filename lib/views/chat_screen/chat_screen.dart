@@ -1,20 +1,20 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:insightalk/constants/app_colors.dart';
 import 'package:insightalk/constants/app_paddings.dart';
+import 'package:insightalk/constants/svgs.dart';
 import 'package:insightalk/controllers/chat_controllers/chat_messages_controller.dart';
-import 'package:insightalk/widgets/app_text.dart';
 import 'package:insightalk/widgets/chat_widgets/chat_box.dart';
 import 'package:insightalk/widgets/chat_widgets/send_chat.dart';
 
 import '../../widgets/chat_widgets/chat_appbar.dart';
 
 class ChatScreen extends StatelessWidget {
-  String imageUrl, profileName, lastSeen;
-  int msgLength;
-  ChatScreen({
+  final String imageUrl, profileName, lastSeen;
+  final int msgLength;
+  const ChatScreen({
     Key? key,
     required this.lastSeen,
     required this.profileName,
@@ -29,12 +29,13 @@ class ChatScreen extends StatelessWidget {
       color: AppColors.primaryColor,
       child: SafeArea(
         child: Scaffold(
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(70),
-            child: ChatAppBar(
-              profileName: profileName,
-              lastSeen: lastSeen,
-              imageUrl: imageUrl,
+          appBar: ChatAppBar(
+            profileName: profileName,
+            lastSeen: lastSeen,
+            imageUrl: imageUrl,
+            trailing: Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: SvgPicture.string(SvgIcons.deleteFriend),
             ),
           ),
           body: Stack(

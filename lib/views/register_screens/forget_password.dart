@@ -27,12 +27,12 @@ class ForgetPassword extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    AppText(
+                    const AppText(
                       text: "Reset password",
                       fontSize: 27,
                       fontWeight: FontWeight.w600,
                     ),
-                    AppText(
+                    const AppText(
                       text:
                           "Please enter your new password  and confirm that new password.",
                       fontSize: 16,

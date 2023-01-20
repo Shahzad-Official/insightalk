@@ -27,13 +27,13 @@ class EmailCheck extends StatelessWidget {
                   SvgIcons.resetEmaillogo,
                 ),
                 AppPaddings.heigthSpace30,
-                AppText(
+                const AppText(
                   text: "Check your Email",
                   fontSize: 27,
                   fontWeight: FontWeight.w600,
                 ),
                 AppPaddings.heigthSpace10,
-                AppText(
+                const AppText(
                   text:
                       "we have sent you a reset password link on your registered email address.",
                   fontSize: 16,
@@ -42,7 +42,7 @@ class EmailCheck extends StatelessWidget {
                   textColor: Colors.grey,
                 ),
                 AppPaddings.heigthSpace10,
-                AppText(
+                const AppText(
                   text: "Don't forget to check email spam folder.",
                   fontSize: 16,
                   textAlign: TextAlign.center,

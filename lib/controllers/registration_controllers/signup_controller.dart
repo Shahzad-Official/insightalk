@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/app_colors.dart';
+import '../../views/home_pages/home_screen.dart';
 
 class SignupController extends GetxController {
   TextEditingController email = TextEditingController();
@@ -17,8 +18,6 @@ class SignupController extends GetxController {
     checkValue = value;
     update();
   }
-
-  bool isloading = false;
 
   bool isEmailValid(String email) {
     String exp =
@@ -86,6 +85,8 @@ class SignupController extends GetxController {
         colorText: Colors.white,
         backgroundColor: AppColors.primaryColor,
       );
-    } else {}
+    } else {
+      Get.offAll(() => const HomeScreen());
+    }
   }
 }

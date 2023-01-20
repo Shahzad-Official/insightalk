@@ -55,7 +55,7 @@ class LoginController extends GetxController {
       );
     } else {
       Get.offAll(
-        () => HomeScreen(),
+        () => const HomeScreen(),
       );
     }
   }

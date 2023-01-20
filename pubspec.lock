@@ -36,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.2.1"
   characters:
     dependency: transitive
     description:
@@ -226,13 +233,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.6.2"
-  infinite_listview:
-    dependency: transitive
-    description:
-      name: infinite_listview
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.0"
   intl:
     dependency: "direct main"
     description:
@@ -275,13 +275,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-  numberpicker:
-    dependency: "direct main"
-    description:
-      name: numberpicker
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.1"
   octo_image:
     dependency: transitive
     description:
@@ -462,6 +455,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  smooth_page_indicator:
+    dependency: "direct main"
+    description:
+      name: smooth_page_indicator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+2"
   source_span:
     dependency: transitive
     description:

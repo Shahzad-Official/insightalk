@@ -27,7 +27,17 @@ class Signup extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AppLogo(),
+                  const AppLogo(
+                    size: 70,
+                  ),
+                  AppPaddings.heigthSpace30,
+                  const AppText(
+                    text: "Sign In",
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  AppPaddings.heigthSpace30,
+                  AppPaddings.heigthSpace30,
                   AppInputField(
                     headingText: "Username",
                     controller: _signupController.name,
@@ -58,7 +68,7 @@ class Signup extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AppText(
+                      const AppText(
                         text: "Already have an account?",
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -70,7 +80,7 @@ class Signup extends StatelessWidget {
                             () => Login(),
                           );
                         },
-                        child: AppText(
+                        child: const AppText(
                           text: "Login",
                           fontSize: 15,
                           fontWeight: FontWeight.w500,

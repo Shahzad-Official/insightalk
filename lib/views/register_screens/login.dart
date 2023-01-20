@@ -10,7 +10,6 @@ import 'package:insightalk/widgets/app_input_field.dart';
 import 'package:insightalk/widgets/app_logo.dart';
 import 'package:insightalk/widgets/app_text.dart';
 
-// ignore: must_be_immutable
 class Login extends StatelessWidget {
   Login({Key? key}) : super(key: key);
   final LoginController _loginController = Get.put(LoginController());
@@ -28,7 +27,17 @@ class Login extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AppLogo(),
+                  const AppLogo(
+                    size: 70,
+                  ),
+                  AppPaddings.heigthSpace30,
+                  const AppText(
+                    text: "Sign In",
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  AppPaddings.heigthSpace30,
+                  AppPaddings.heigthSpace30,
                   AppInputField(
                     controller: _loginController.email,
                     headingText: "Email/Phone",
@@ -44,10 +53,10 @@ class Login extends StatelessWidget {
                     child: InkWell(
                       onTap: () {
                         Get.off(
-                          () => EmailCheck(),
+                          () => const EmailCheck(),
                         );
                       },
-                      child: AppText(
+                      child: const AppText(
                         text: "Forget passsword",
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
@@ -66,7 +75,7 @@ class Login extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AppText(
+                      const AppText(
                         text: "Don't have an account?",
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -78,7 +87,7 @@ class Login extends StatelessWidget {
                             () => Signup(),
                           );
                         },
-                        child: AppText(
+                        child: const AppText(
                           text: "Register",
                           fontSize: 15,
                           fontWeight: FontWeight.w500,

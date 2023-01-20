@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import 'package:insightalk/constants/app_colors.dart';
 import 'package:insightalk/constants/app_paddings.dart';
-import 'package:insightalk/constants/svgs.dart';
+import 'package:insightalk/views/on_boarding_page.dart';
 import 'package:insightalk/views/register_screens/login.dart';
 
 import '../widgets/app_logo.dart';
@@ -19,7 +17,7 @@ class SplashScreen extends StatelessWidget {
       (() => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => Login(),
+              builder: (context) => const OnBoardingPage(),
             ),
           )),
     );
@@ -30,12 +28,12 @@ class SplashScreen extends StatelessWidget {
           padding: AppPaddings.defaultPadding,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               AppLogo(),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
-              const SpinKitCircle(
+              SpinKitCircle(
                 color: AppColors.primaryColor,
               ),
             ],

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppLogo extends StatelessWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  AppLogo({
+  final double size;
+  const AppLogo({
     Key? key,
+    this.size = 150,
   }) : super(key: key);
 
   @override
@@ -11,8 +12,8 @@ class AppLogo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
       child: SizedBox(
-        width: 150,
-        height: 150,
+        width: size,
+        height: size,
         child: Image.asset(
           "assets/logo.png",
         ),

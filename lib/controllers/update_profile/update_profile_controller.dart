@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:insightalk/views/home_pages/home_screen.dart';
 
 import '../../constants/app_colors.dart';
 
@@ -8,6 +9,7 @@ class UpdateProfileController extends GetxController {
   TextEditingController email = TextEditingController();
 
   TextEditingController name = TextEditingController();
+  TextEditingController about = TextEditingController();
 
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
@@ -39,32 +41,19 @@ class UpdateProfileController extends GetxController {
     return regExp.hasMatch(password);
   }
 
-  isValidUser() async {
-    if (name.text.trim().isEmpty) {
-      Get.snackbar(
-        "Error",
-        "Name should not be empty",
-        colorText: Colors.white,
-        backgroundColor: AppColors.primaryColor,
-      );
-    } else if (email.text.trim().isEmpty) {
-      Get.snackbar(
-        "Error",
-        "Email should not be empty",
-        colorText: Colors.white,
-        backgroundColor: AppColors.primaryColor,
-      );
-    } else if (!isEmailValid(email.text)) {
+  userInfo() {
+    name.text = "tanvesh padyal";
+    email.text = "abc@gamil.com";
+    about.text = "My name is Jessica Parker and I enjoy ...";
+    password.text = "Sh@123456";
+    confirmPassword.text = "Sh@123456";
+  }
+
+  isValidInfo() {
+    if (!isEmailValid(email.text)) {
       Get.snackbar(
         "Error",
         "Email is invalid\nEmail must be like:- abc@gmail.com",
-        colorText: Colors.white,
-        backgroundColor: AppColors.primaryColor,
-      );
-    } else if (password.text.trim().isEmpty) {
-      Get.snackbar(
-        "Error",
-        "Password should not be empty",
         colorText: Colors.white,
         backgroundColor: AppColors.primaryColor,
       );
@@ -89,6 +78,15 @@ class UpdateProfileController extends GetxController {
         colorText: Colors.white,
         backgroundColor: AppColors.primaryColor,
       );
-    } else {}
+    } else {
+      Get.offAll(() => const HomeScreen());
+    }
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    userInfo();
   }
 }

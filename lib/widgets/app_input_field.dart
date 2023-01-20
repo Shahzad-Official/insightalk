@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insightalk/widgets/app_text.dart';
 
-// ignore: must_be_immutable
 class AppInputField extends StatelessWidget {
-  TextEditingController? controller;
-  String? hintText, initialValue;
-  String headingText;
-  TextInputType? keyboardType;
-  bool? enabled, obsecure;
-  TextInputAction? textInputAction;
-  AppInputField({
+  final TextEditingController? controller;
+  final String? hintText, initialValue;
+  final String headingText;
+  final TextInputType? keyboardType;
+  final bool? enabled, obsecure;
+  final TextInputAction? textInputAction;
+  const AppInputField({
     Key? key,
     this.controller,
     this.hintText,

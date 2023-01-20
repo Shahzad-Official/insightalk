@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ChatMessagesController extends GetxController {
+class GroupChatController extends GetxController {
   TextEditingController message = TextEditingController();
   File? imageFile;
   bool isImageClicked = false;

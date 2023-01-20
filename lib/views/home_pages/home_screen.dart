@@ -4,7 +4,7 @@ import 'package:insightalk/constants/app_colors.dart';
 import 'package:insightalk/constants/svgs.dart';
 import 'package:insightalk/views/home_pages/home_screens/all_chats_screen.dart';
 import 'package:insightalk/views/home_pages/home_screens/friends_screen.dart';
-import 'package:insightalk/views/home_pages/home_screens/like_screen.dart';
+import 'package:insightalk/views/home_pages/home_screens/users_screen.dart';
 import 'package:insightalk/views/home_pages/home_screens/profile_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> homeScreens = const [
     AllChatsScreen(),
-    LikeScreen(),
+    UsersScreen(),
     FriendsScreen(),
     ProfileView(),
   ];
@@ -50,9 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.string(
-                  currentIndex == 1
-                      ? SvgIcons.likeIcon
-                      : SvgIcons.inactiveLikeIcon,
+                  SvgIcons.personIcon,
+                  color:
+                      currentIndex == 1 ? AppColors.primaryColor : Colors.grey,
                 ),
                 label: "",
               ),
