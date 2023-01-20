@@ -106,10 +106,13 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
                               const SizedBox(
                                 width: 15,
                               ),
-                              SvgPicture.string(SvgIcons.friendRequest),
+                              InkWell(
+                                child:
+                                    SvgPicture.string(SvgIcons.friendRequest),
+                              ),
                             ],
                           ),
-                          imageProvider: AssetImage("assets/girl1.jpg"),
+                          imageProvider: const AssetImage("assets/girl1.jpg"),
                         ),
                       );
                     },

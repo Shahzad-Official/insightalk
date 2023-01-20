@@ -7,6 +7,7 @@ import 'package:insightalk/constants/app_colors.dart';
 import 'package:insightalk/constants/app_paddings.dart';
 import 'package:insightalk/constants/dummy_images.dart';
 import 'package:insightalk/views/chat_screen/group_chat_screen.dart';
+import 'package:insightalk/views/profile/friend_profile_view.dart';
 import 'package:insightalk/widgets/app_buttons.dart';
 import 'package:insightalk/widgets/app_text.dart';
 
@@ -39,15 +40,20 @@ class AllChatsScreen extends StatelessWidget {
                   );
                 },
                 imageBuilder: (context, imageProvider) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: AppColors.primaryColor.withOpacity(0.5),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          DummyImages.networkImages[index],
+                  return InkWell(
+                    onTap: () => Get.to(
+                      () => FriendProfileView(
+                        imageUrl: DummyImages.networkImages[index],
+                      ),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: AppColors.primaryColor.withOpacity(0.5),
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
                         ),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   );

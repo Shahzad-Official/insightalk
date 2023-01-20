@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:insightalk/constants/svgs.dart';
 import 'package:insightalk/controllers/chat_controllers/group_chat_controller.dart';
+import 'package:insightalk/views/chat_screen/chat_screen.dart';
 import 'package:insightalk/views/chat_screen/rate_group_chat.dart';
 import 'package:insightalk/widgets/app_buttons.dart';
 import 'package:insightalk/widgets/app_text.dart';
@@ -131,7 +132,7 @@ class GroupChatScreen extends StatelessWidget {
                                         borderColor: Colors.transparent,
                                         height: 45,
                                         width: 40,
-                                        childText: "hello",
+                                        childText: "",
                                         color: AppColors.primaryColor
                                             .withOpacity(0.3),
                                         child: Padding(
@@ -143,10 +144,15 @@ class GroupChatScreen extends StatelessWidget {
                                       ),
                                       AppPaddings.heigthSpace30,
                                       RoundButton(
+                                        onTap: () => Get.to(
+                                          () => const ChatScreen(
+                                              lastSeen: "10:pm",
+                                              profileName: "John Doe"),
+                                        ),
                                         borderColor: Colors.transparent,
                                         height: 45,
                                         width: 40,
-                                        childText: "hello",
+                                        childText: "",
                                         color: AppColors.primaryColor
                                             .withOpacity(0.3),
                                         child: Padding(
@@ -167,7 +173,9 @@ class GroupChatScreen extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(top: 20.0),
                               child: AppButton(
-                                onTap: () => Get.back(),
+                                onTap: () => Get.to(
+                                  () => RateGroupChat(),
+                                ),
                                 childText: "End Chat",
                                 width: 150,
                                 height: 45,

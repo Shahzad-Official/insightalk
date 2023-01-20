@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:insightalk/constants/app_colors.dart';
 import 'package:insightalk/constants/app_paddings.dart';
-import 'package:insightalk/views/update_profile/update_profile.dart';
+import 'package:insightalk/views/profile/update_profile.dart';
 import 'package:insightalk/widgets/app_buttons.dart';
 import 'package:insightalk/widgets/app_text.dart';
 

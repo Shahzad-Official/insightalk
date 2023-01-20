@@ -32,7 +32,7 @@ class Signup extends StatelessWidget {
                   ),
                   AppPaddings.heigthSpace30,
                   const AppText(
-                    text: "Sign In",
+                    text: "Register to Insightalk",
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
